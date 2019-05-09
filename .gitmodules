@@ -1,3 +1,6 @@
 [submodule "harness/openssl"]
 	path = harness/openssl
 	url = https://github.com/openssl/openssl
+[submodule "harness/cn-cbor"]
+	path = harness/cn-cbor
+	url = https://github.com/cabo/cn-cbor
