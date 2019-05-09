@@ -4,3 +4,6 @@
 [submodule "harness/cn-cbor"]
 	path = harness/cn-cbor
 	url = https://github.com/cabo/cn-cbor
+[submodule "harness/asn1c"]
+	path = harness/asn1c
+	url = git@github.com:vlm/asn1c.git
