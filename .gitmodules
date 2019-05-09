@@ -1,0 +1,3 @@
+[submodule "harness/openssl"]
+	path = harness/openssl
+	url = https://github.com/openssl/openssl
