@@ -1,9 +1,10 @@
 ---
-title: "ASN.1 vs CBOR performance in TLS usage scenarios"
+title: "ASN.1 vs. CBOR performance in TLS usage scenarios"
 author:
-  - Thomas Peterson
+  - Thomas Peterson^[nosretep.samoht@gmail.com]
 date: "`r format(Sys.time(), '%d %B %Y')`"
 classoption: twocolumn
+link-citations: true
 bibliography: bibliography.bib
 output: 
   pdf_document:
@@ -15,12 +16,10 @@ output:
 
 ```{r setup, message=FALSE, warning=FALSE, echo=FALSE}
 knitr::opts_chunk$set(echo=FALSE, results="hide")
-library(ggplot2)
 
 ```
 
 # Abstract
-
 Abstract Syntax Notation One (ASN.1) is an interface description language used
 for describing data structures which can then be serialised and deserialised
 into many different packed formats, including but not limited to BER, JSON, and
@@ -33,25 +32,27 @@ create greater efficiency of use cases of the TLS protocol with regards to bytes
 transferred, connection set up times, and CPU compute used.
 
 # Introduction
-
-Version 1.0 of TLS[@RFC2246] did not originally specify a particular
-serialisation format of certificates, however later versions being more
-specific, with TLS version 1.3[@RFC8446] stating certificates any other
+Version 1.0 of the TLS protocol [@RFC2246] did not originally specify a
+particular serialisation format of certificates, however later versions being
+more specific, with TLS version 1.3 [@RFC8446] stating certificates any other
 cryptographic related payloads being encoded with Distinguished Encoding Rules
 (DER) unless otherwise specified.
 
 Attempts to provide standards that permit unnecessary certificate metadata
-already exist, with RFC 7250[@RFC7250] describing a standard for transmitting
+already exist, with RFC 7250 [@RFC7250] describing a standard for transmitting
 only the certificate's public key value.
 
 ## Comparing ASN.1 to CBOR
-
 Existing research into ASN.1 performance is limited - during the gathering of
 prior research covering the ASN.1 format only one
 paper[@Lin:1993:EOP:174194.174203] covering optimal
 
-# Methodology
+<!---
+TODO: Also discuss X.509 extensions - in particular things like Certificate
+Transparency, whose key presence
+-->
 
+# Methodology
 As no known implementation existed at time of research, we first attempted to
 build a customised version of OpenSSL with CBOR support, using the X.509 CBOR
 profile. OpenSSL was chosen given its popularity.
@@ -62,12 +63,12 @@ profile. OpenSSL was chosen given its popularity.
 
 # Acknowledgements
 
-TODO: Also discuss X.509 extensions - in particular things like Certificate
-Transparency, whose key presence
+# References
 
+<!---
 TLS
 
 TODO: Talk about where TLS overheads that are existent, how systems implementing
 TLD use long running connections to reduce the overhead costs,
 
-
+-->
