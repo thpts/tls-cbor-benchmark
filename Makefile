@@ -1,4 +1,4 @@
-.PHONY: analysis-build analysis collector-build collector
+.PHONY: analysis-build analysis collector-build collector converter-build
 
 build: analysis-build 
 
@@ -7,6 +7,9 @@ collector-build:
 
 collector:
 	docker run --rm -v ${PWD}/data:/data cbor-tls-collector
+
+converter-build:
+	docker build -t cbor-tls-converter converter/
 
 analysis-build:
 	docker build -t cbor-tls-analysis analysis/
